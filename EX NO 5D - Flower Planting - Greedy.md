@@ -34,10 +34,11 @@ A valid flower assignment always exists
 
 ## Program:
 ```
-/*
 Flower Planting
 Developed by: Karthick K
 Register Number:212222040070
+```
+```
 import java.util.*;
 
 public class GardenFlowerPlanner {
@@ -84,7 +85,7 @@ public class GardenFlowerPlanner {
     }
 }
  
-*/
+
 ```
 
 ## Output:
