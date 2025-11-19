@@ -17,10 +17,11 @@ Find the MST using Boruvka's Algorithm for a weighted undirected graph.
 
 ## Program:
 ```
-/*
 Minimum Spanning Tree -Boruvka's Algorithm
 Developed by: Karthick k
 Register Number: 212222040070
+```
+```
 
 import java.util.*;
 
