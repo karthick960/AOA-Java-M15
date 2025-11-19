@@ -1,6 +1,6 @@
 
 # EX 5C Graph coloring
-## DATE:
+## DATE:29/11/2025
 ## AIM:
 To write a Java program to for given constraints.
 Problem Description:
@@ -26,22 +26,66 @@ Otherwise, print "NO".
 
 
 ## Algorithm
-1. 
-2. 
-3. 
-4.  
-5.   
+1.Try to assign one of the m channels to the current tower.
+2.For each channel, check if assigning it is safe (none of its neighbors use the same channel).
+3.If safe, assign the channel and recursively try coloring the next tower.
+4.If a conflict occurs later, backtrack by resetting the tower’s channel and trying the next channel.
+5.If all towers are successfully colored, return YES; otherwise, return NO.   
 
 ## Program:
 ```
 /*
-Program to implement Reverse a String
-Developed by: 
-Register Number:  
+Graph Coloring
+Developed by:Karthick K
+Register Number:212222040070
+
+import java.util.*;
+
+public class RadioTowerChannelAssignment {
+
+    public static boolean isColorable(List<List<Integer>> graph, int[] color, int node, int m, int n) {
+        if (node == n) return true;
+        for (int c = 1; c <= m; c++) {
+            if (isSafe(graph, color, node, c)) {
+                color[node] = c;
+                if (isColorable(graph, color, node + 1, m, n)) return true;
+                color[node] = 0;
+            }
+        }
+        return false;
+    }
+
+    private static boolean isSafe(List<List<Integer>> graph, int[] color, int node, int c) {
+        for (int neighbor : graph.get(node))
+            if (color[neighbor] == c) return false;
+        return true;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int m = sc.nextInt();
+        int e = sc.nextInt();
+        List<List<Integer>> graph = new ArrayList<>();
+        for (int i = 0; i < n; i++) graph.add(new ArrayList<>());
+        for (int i = 0; i < e; i++) {
+            int u = sc.nextInt();
+            int v = sc.nextInt();
+            graph.get(u).add(v);
+            graph.get(v).add(u);
+        }
+        int[] color = new int[n];
+        if (isColorable(graph, color, 0, m, n)) System.out.println("YES");
+        else System.out.println("NO");
+        sc.close();
+    }
+}
+ 
 */
 ```
 
 ## Output:
+<img width="837" height="540" alt="image" src="https://github.com/user-attachments/assets/70718af7-2098-47bd-9d19-57ece951d722" />
 
 
 
